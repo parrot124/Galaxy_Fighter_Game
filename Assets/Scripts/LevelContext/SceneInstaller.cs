@@ -1,0 +1,10 @@
+using Zenject;
+
+public class SceneInstaller : MonoInstaller
+{
+    public override void InstallBindings()
+    {
+        Container.Bind<InputReader>().AsSingle().NonLazy();
+        Container.Bind<PlayerController>().AsSingle();
+    }
+}
