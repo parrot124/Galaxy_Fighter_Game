@@ -12,7 +12,7 @@ public class LevelSelector : MonoBehaviour
 
     private void Awake()
     {
-        
+        _levels = _levelContainer.Levels;
     }
 
     private void SelectLevel()

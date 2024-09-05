@@ -1,17 +1,16 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
 public class EnemyCreator : MonoBehaviour
 {
-    private Level currentLevel;
     [SerializeField] private float SpawnRate;
+    private List<Enemy> enemies;
 
     private void Start()
     {
-        currentLevel = GameManager.CurrentLevel;
+        SpawnRate = GameManager.CurrentLevel.SpawnRate;
+        enemies = GameManager.CurrentLevel.EnemyList;
     }
 
     private IEnumerator SpawnEnemy()

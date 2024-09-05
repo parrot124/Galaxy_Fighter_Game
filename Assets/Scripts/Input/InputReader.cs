@@ -8,12 +8,10 @@ public class InputReader
     public event Action<Vector2> MovementEvent;
     public event Action ShootEvent;
 
-    private CustomInput customInput;
+    [Inject] private CustomInput customInput;
 
     private InputReader()
     {
-        customInput = new CustomInput();
-
         customInput.Enable();
 
         customInput.Gameplay.Movement.performed += OnMovement;
