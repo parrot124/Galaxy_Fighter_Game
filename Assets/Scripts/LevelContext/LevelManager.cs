@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LevelManager : MonoBehaviour
@@ -12,7 +11,7 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         ShowIntro();
-        enemyCreator = this.AddComponent<EnemyCreator>();
+        enemyCreator = gameObject.AddComponent<EnemyCreator>();
         currentLevel = GameManager.CurrentLevel;
     }
 
@@ -24,5 +23,9 @@ public class LevelManager : MonoBehaviour
 
         //next code should create text field game object showing label
         string label = currentLevel.Name;
+        GameObject labelText = new GameObject();
+        
+        
+        GameObject.Destroy(labelText);
     }
 }

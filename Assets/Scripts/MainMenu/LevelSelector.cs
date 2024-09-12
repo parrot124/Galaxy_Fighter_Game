@@ -13,6 +13,8 @@ public class LevelSelector : MonoBehaviour
     private void Awake()
     {
         _levels = _levelContainer.Levels;
+
+        //should initialize LevelSelectorUI component
     }
 
     private void SelectLevel()
