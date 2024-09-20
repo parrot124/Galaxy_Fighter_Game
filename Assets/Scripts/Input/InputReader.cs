@@ -1,17 +1,19 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
-public class InputReader
+public class InputReader : IDisposable
 {
     public event Action<Vector2> MovementEvent;
     public event Action ShootEvent;
 
     private CustomInput customInput;
 
-    private InputReader()
+    [Inject] 
+    private InputReader(CustomInput input)
     {
-        customInput ??= new CustomInput();
+        customInput = input;
 
         customInput.Enable();
 
@@ -27,7 +29,7 @@ public class InputReader
         ShootEvent?.Invoke();
     }
 
-    ~InputReader()
+    public void Dispose()
     {
         customInput.Gameplay.Movement.performed -= OnMovement;
         customInput.Gameplay.Shoot.performed -= OnShootStarted;
