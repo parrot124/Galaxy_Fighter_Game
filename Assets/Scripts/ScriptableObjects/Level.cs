@@ -10,7 +10,7 @@ public class Level : ScriptableObject
     public List<Enemy> EnemyList => enemies;
 
     [SerializeField] private float spawnRate;
-    [SerializeField] private string name;
+    [SerializeField] private string levelName;
     [SerializeField] private string description;
     [SerializeField] private List<Enemy> enemies;
 

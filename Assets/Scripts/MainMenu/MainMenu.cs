@@ -37,7 +37,7 @@ public class MainMenu : MonoBehaviour
     {
         //open level selecting menu (activate/deactivate some GameObjects)
 
-        SceneManager.LoadScene(Scenes.GameScene);
+        throw new NotImplementedException();
     }
 
     private void OnSettingsPresed()

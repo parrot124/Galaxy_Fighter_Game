@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
 
     private void ShowIntro()
     {
+        //there should be coroutine start
         //show CurrentLevel name on full screen
         Debug.LogError("ShowIntro() not Implemented");
 
