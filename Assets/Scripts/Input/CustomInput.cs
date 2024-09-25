@@ -20,8 +20,6 @@ public partial class @CustomInput: IInputActionCollection2, IDisposable
     public InputActionAsset asset { get; }
     public @CustomInput()
     {
-        UnityEngine.Debug.Log("CustomInput is initializing");
-
         asset = InputActionAsset.FromJson(@"{
     ""name"": ""CustomInput"",
     ""maps"": [
