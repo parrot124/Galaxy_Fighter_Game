@@ -12,10 +12,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Utilities;
-using UnityEngine;
 
 public partial class @CustomInput: IInputActionCollection2, IDisposable
 {
