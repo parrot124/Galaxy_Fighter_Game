@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assets.Scripts.MainMenu.StateMachine
 {
@@ -22,7 +18,8 @@ namespace Assets.Scripts.MainMenu.StateMachine
 
         public void Exit()
         {
-            throw new NotImplementedException();
+            //im not sure this is ok
+            mainMenuStateMachine.EnterIn<MainMenuState>();
         }
     }
 }

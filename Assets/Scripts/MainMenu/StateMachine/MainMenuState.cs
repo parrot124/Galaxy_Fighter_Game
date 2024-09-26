@@ -1,4 +1,5 @@
 ﻿using System;
+
 namespace Assets.Scripts.MainMenu.StateMachine
 {
     internal class MainMenuState : IMainMenuState
@@ -17,7 +18,7 @@ namespace Assets.Scripts.MainMenu.StateMachine
 
         public void Exit()
         {
-            throw new NotImplementedException();
+            mainMenuStateMachine.EnterIn<LevelSelectionState>();
         }
     }
 }

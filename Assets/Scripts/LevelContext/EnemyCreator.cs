@@ -1,5 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class EnemyCreator : MonoBehaviour
@@ -9,8 +9,8 @@ public class EnemyCreator : MonoBehaviour
 
     private void Start()
     {
-        //SpawnRate = GameManager.CurrentLevel.SpawnRate;
-        //enemies = GameManager.CurrentLevel.EnemyList;
+        SpawnRate = GameManager.CurrentLevel.SpawnRate;
+        enemies = GameManager.CurrentLevel.EnemyList;
     }
 
     private IEnumerator SpawnEnemy()

@@ -2,6 +2,6 @@
 {
     internal static class GameConstants
     {
-        public static string LEVEL_CONTAINER_PATH = "Assets/GameData/Levels/LevelContainer";
+        public const string LEVEL_CONTAINER_PATH = "Assets/GameData/Levels/LevelContainer";
     }
 }

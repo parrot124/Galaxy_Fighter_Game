@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+//TODO: Refactoring
 public class MainMenu
 {
     public MainMenu() 

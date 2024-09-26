@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
     private Level currentLevel;
     private EnemyCreator enemyCreator;
 
-    void Start()
+    private void Start()
     {
         ShowIntro();
         enemyCreator = gameObject.AddComponent<EnemyCreator>();
@@ -18,7 +18,6 @@ public class LevelManager : MonoBehaviour
 
     private void ShowIntro()
     {
-        return;
         //there should be coroutine start
         //show CurrentLevel name on full screen
         Debug.LogError("ShowIntro() not Implemented");
@@ -27,6 +26,7 @@ public class LevelManager : MonoBehaviour
         string label = currentLevel.Name;
         GameObject labelText = new GameObject();
         
+        //...
         
         GameObject.Destroy(labelText);
     }

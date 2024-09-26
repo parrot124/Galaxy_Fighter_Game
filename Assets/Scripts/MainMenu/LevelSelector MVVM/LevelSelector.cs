@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// TODO: Refactoring
 public class LevelSelector : MonoBehaviour
 {
     public static event LevelDelegate OnLevelSelected;

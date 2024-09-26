@@ -4,6 +4,9 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// The "View" component of the main menu main section
+/// </summary>
 public class MainMenuView : MonoBehaviour
 {
     private Button playButton;
@@ -18,7 +21,7 @@ public class MainMenuView : MonoBehaviour
     {
         List<Button> buttons = GetComponentsInChildren<Button>().ToList();
 
-        //stupid
+        //cringe
         playButton = buttons.Find(x => x.gameObject.name == "Play");
         settingsButton = buttons.Find(x => x.gameObject.name == "Settings");
         quitButton = buttons.Find(x => x.gameObject.name == "Quit");
