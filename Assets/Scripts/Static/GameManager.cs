@@ -7,11 +7,11 @@ public static class GameManager
     static GameManager()
     {
         LevelSelector.OnLevelSelected += LoadLevel;
-        levelContainer = (LevelContainer)Resources.Load(GameConstants.LEVEL_CONTAINER_PATH);
+        LevelContainer = (LevelContainer)Resources.Load(GameConstants.LEVEL_CONTAINER_PATH);
     }
 
     public static Level CurrentLevel { get; private set; }
-    public static LevelContainer levelContainer;
+    public static LevelContainer LevelContainer;
 
     private static void LoadLevel(Level level)
     {

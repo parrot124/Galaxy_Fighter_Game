@@ -10,7 +10,7 @@ public class MainMenuViewModel
         MainMenuStateMachine.OnStateChange += OnStateChange;
     }
 
-    //what to do there??? checking specific type of state is gonna be VERY dumb
+    //what to do here? checking specific type of state is gonna be VERY dumb
     private void OnStateChange(IMainMenuState state)
     {
         throw new NotImplementedException();

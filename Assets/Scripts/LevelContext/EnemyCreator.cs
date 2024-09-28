@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class EnemyCreator : MonoBehaviour
 {
-    [SerializeField] private float SpawnRate;
+    [SerializeField] private float spawnRate;
     private List<Enemy> enemies;
 
     private void Start()
     {
-        SpawnRate = GameManager.CurrentLevel.SpawnRate;
+        spawnRate = GameManager.CurrentLevel.SpawnRate;
         enemies = GameManager.CurrentLevel.EnemyList;
     }
 
     private IEnumerator SpawnEnemy()
     {
-        yield return new WaitForSeconds(1.0f/SpawnRate);
+        yield return new WaitForSeconds(1.0f/spawnRate);
 
         GameObject newEnemy = GameObject.CreatePrimitive(PrimitiveType.Plane);
         newEnemy.transform.position += ScreenBound.Top;

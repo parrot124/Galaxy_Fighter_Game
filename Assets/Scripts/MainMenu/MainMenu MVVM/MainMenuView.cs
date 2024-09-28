@@ -13,9 +13,9 @@ public class MainMenuView : MonoBehaviour
     private Button settingsButton;
     private Button quitButton;
 
-    public static event Action QuitPressedEvent;
-    public static event Action SettingsPressedEvent;
     public static event Action PlayPressedEvent;
+    public static event Action SettingsPressedEvent;
+    public static event Action QuitPressedEvent;
 
     void OnEnable()
     {
