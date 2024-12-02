@@ -9,6 +9,8 @@ using UnityEngine.UI;
 /// </summary>
 public class MainMenuView : MonoBehaviour
 {
+    public static MainMenuView Instance { get; private set; }
+
     private Button playButton;
     private Button settingsButton;
     private Button quitButton;
@@ -19,7 +21,9 @@ public class MainMenuView : MonoBehaviour
 
     void OnEnable()
     {
-        List<Button> buttons = GetComponentsInChildren<Button>().ToList();
+        Instance = this;
+
+        List<Button> buttons = transform.GetChild(0).GetComponentsInChildren<Button>().ToList();
 
         //cringe
         playButton = buttons.Find(x => x.gameObject.name == "Play");
@@ -33,6 +37,8 @@ public class MainMenuView : MonoBehaviour
 
     private void OnDisable()
     {
+        Instance = null;
+
         playButton.onClick.RemoveListener(OnPlayPressed);
         settingsButton.onClick.RemoveListener(OnSettingsPresed);
         quitButton.onClick.RemoveListener(OnSettingsPresed);

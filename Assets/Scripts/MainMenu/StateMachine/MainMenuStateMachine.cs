@@ -7,8 +7,7 @@ using Assets.Scripts.MainMenu.StateMachine;
 /// </summary>
 public class MainMenuStateMachine
 {
-    public static event StateChangeDelegate OnStateChange;
-    public delegate void StateChangeDelegate(IMainMenuState state);
+    public static event Action<IMainMenuState> OnStateChange;
 
     private Dictionary<Type, IMainMenuState> states;
     private IMainMenuState currentState;
@@ -17,20 +16,34 @@ public class MainMenuStateMachine
     {
         states = new Dictionary<Type, IMainMenuState>()
         {
-            [typeof(MainMenuState)] = new MainMenuState(this),
-            [typeof(LevelSelectionState)] = new LevelSelectionState(this)
+            [typeof(MainMenuWindow)] = new MainMenuWindow(),
+            [typeof(LevelSelectionWindow)] = new LevelSelectionWindow()
         };
 
-        EnterIn<MainMenuState>();
+        EnterIn<MainMenuWindow>();
+
+        //after MainMenuWindow activation, subscribe to its events
+        MainMenuView.PlayPressedEvent += EnterLevelSelectionWindow;
+        LevelSelector.BackButtonPressedEvent += EnterMainMenuWindow;
     }
 
-    public void EnterIn<TState>() where TState : IMainMenuState
+    private void EnterLevelSelectionWindow()
+    {
+        EnterIn<LevelSelectionWindow>();
+    }
+
+    private void EnterMainMenuWindow()
+    {
+        EnterIn<MainMenuWindow>();
+    }
+
+    private void EnterIn<TState>() where TState : IMainMenuState
     {
         if (states.TryGetValue(typeof(TState), out IMainMenuState state))
         {
             currentState?.Exit();
             currentState = state;
-            currentState?.Enter();
+            currentState.Enter();
 
             OnStateChange?.Invoke(currentState);
         }
