@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
-public class InputReader : IDisposable
+public class InputReader
 {
     public event Action<Vector2> MovementEvent;
     public event Action ShootEvent;
@@ -29,7 +29,7 @@ public class InputReader : IDisposable
         ShootEvent?.Invoke();
     }
 
-    public void Dispose()
+    public void Disable()
     {
         customInput.Gameplay.Movement.performed -= OnMovement;
         customInput.Gameplay.Shoot.performed -= OnShootStarted;

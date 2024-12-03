@@ -1,6 +1,5 @@
-using Assets.Scripts.MainMenu.StateMachine;
-using UnityEngine;
 using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class LevelSelector : MonoBehaviour
@@ -10,8 +9,6 @@ public class LevelSelector : MonoBehaviour
 
     private Button backButton;
     public static Action<Level> OnLevelSelected;
-
-    private LevelSelectionWindow levelSelectionWindowController;
 
     private void OnEnable()
     {

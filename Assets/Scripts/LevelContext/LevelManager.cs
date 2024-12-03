@@ -5,8 +5,8 @@ public class LevelManager : MonoBehaviour
 {
     public static Transform PlayerTransform { get; private set; }
 
-    private Level currentLevel;
     private EnemyCreator enemyCreator;
+    private Level currentLevel;
 
     private void Start()
     {
@@ -14,7 +14,6 @@ public class LevelManager : MonoBehaviour
         enemyCreator = gameObject.AddComponent<EnemyCreator>();
         currentLevel = GameManager.CurrentLevel;
     }
-
 
     private void ShowIntro()
     {

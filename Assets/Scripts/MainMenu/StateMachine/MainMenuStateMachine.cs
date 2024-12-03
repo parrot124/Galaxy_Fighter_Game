@@ -22,7 +22,7 @@ public class MainMenuStateMachine
 
         EnterIn<MainMenuWindow>();
 
-        //after MainMenuWindow activation, subscribe to its events
+        //subscribe to buttons events
         MainMenuView.PlayPressedEvent += EnterLevelSelectionWindow;
         LevelSelector.BackButtonPressedEvent += EnterMainMenuWindow;
     }

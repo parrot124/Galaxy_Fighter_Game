@@ -31,7 +31,7 @@ public class MainMenuView : MonoBehaviour
         quitButton = buttons.Find(x => x.gameObject.name == "Quit");
 
         playButton.onClick.AddListener(OnPlayPressed);
-        settingsButton.onClick.AddListener(OnSettingsPresed);
+        settingsButton.onClick.AddListener(OnSettingsPressed);
         quitButton.onClick.AddListener(OnQuitPressed);
     }
 
@@ -40,8 +40,8 @@ public class MainMenuView : MonoBehaviour
         Instance = null;
 
         playButton.onClick.RemoveListener(OnPlayPressed);
-        settingsButton.onClick.RemoveListener(OnSettingsPresed);
-        quitButton.onClick.RemoveListener(OnSettingsPresed);
+        settingsButton.onClick.RemoveListener(OnSettingsPressed);
+        quitButton.onClick.RemoveListener(OnSettingsPressed);
     }
 
     private void OnQuitPressed()
@@ -49,7 +49,7 @@ public class MainMenuView : MonoBehaviour
         QuitPressedEvent?.Invoke();
     }
 
-    private void OnSettingsPresed()
+    private void OnSettingsPressed()
     {
         SettingsPressedEvent?.Invoke();
     }

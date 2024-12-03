@@ -3,7 +3,7 @@ using Zenject;
 
 public class PlayerController : MonoBehaviour
 {
-    [Inject] private InputReader _inputReader;
+    [Inject] private InputReader inputReader;
 
     private Vector2 movement;
     [SerializeField] private float speed;
@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         movement = Vector2.zero;
-        _inputReader.MovementEvent += OnMovement;
+        inputReader.MovementEvent += OnMovement;
     }
 
     void Update()

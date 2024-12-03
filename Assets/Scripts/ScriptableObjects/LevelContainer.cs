@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// There is only one LevelContainer in the project. Its directory is harcoded into GameConstants
+/// There is only one LevelContainer in the project. Its directory is hardcoded into GameConstants
 /// </summary>
 [CreateAssetMenu(fileName = "Level Container", menuName = "Scriptable Objects/Level Container")]
 public class LevelContainer : ScriptableObject
