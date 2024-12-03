@@ -1,6 +1,7 @@
 using UnityEngine;
 using Assets.Scripts.Static;
 using UnityEngine.SceneManagement;
+using Assets.Scripts.ScriptableObjects;
 
 public static class GameManager
 {

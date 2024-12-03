@@ -1,23 +1,27 @@
-﻿using System;
+﻿using Assets.Scripts.ScriptableObjects;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// There is only one LevelContainer in the project. Its directory is harcoded into GameConstants
-/// </summary>
-[CreateAssetMenu(fileName = "Level Container", menuName = "Scriptable Objects/Level Container")]
-public class LevelContainer : ScriptableObject
+namespace Assets.Scripts.ScriptableObjects
 {
-    [Header("Set in Inspector")]
-    [SerializeField] private List<Level> levels;
-
-    public List<Level> Levels => levels;
-
-    private void OnEnable()
+    /// <summary>
+    /// There is only one LevelContainer in the project. Its directory is hardcoded into GameConstants
+    /// </summary>
+    [CreateAssetMenu(fileName = "Level Container", menuName = "Scriptable Objects/Level Container")]
+    public class LevelContainer : ScriptableObject
     {
-        if (levels == null)
+        [Header("Set in Inspector")]
+        [SerializeField] private List<Level> levels;
+
+        public List<Level> Levels => levels;
+
+        private void OnEnable()
         {
-            throw new NullReferenceException("Levels not set");
+            if (levels == null)
+            {
+                throw new NullReferenceException("Levels not set");
+            }
         }
     }
 }

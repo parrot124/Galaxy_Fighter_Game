@@ -3,45 +3,48 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;
 
-public class InputReader : IDisposable
+namespace Assets.Scripts.Input
 {
-    public event Action<Vector2> MovementEvent;
-    public event Action ShootEvent;
-
-    private CustomInput customInput;
-
-    [Inject] 
-    private InputReader(CustomInput input)
+    public class InputReader
     {
-        customInput = input;
+        public event Action<Vector2> MovementEvent;
+        public event Action ShootEvent;
 
-        customInput.Enable();
+        private CustomInput customInput;
 
-        customInput.Gameplay.Movement.performed += OnMovement;
-        customInput.Gameplay.Shoot.performed += OnShootStarted;
-        customInput.Gameplay.Shoot.canceled += OnShootStarted;
-        customInput.Gameplay.Movement.canceled += OnMovement;
-    }
+        [Inject]
+        private InputReader(CustomInput input)
+        {
+            customInput = input;
 
-    private void OnShootStarted(InputAction.CallbackContext context)
-    {
-        int value = context.ReadValue<int>();
-        ShootEvent?.Invoke();
-    }
+            customInput.Enable();
 
-    public void Dispose()
-    {
-        customInput.Gameplay.Movement.performed -= OnMovement;
-        customInput.Gameplay.Shoot.performed -= OnShootStarted;
-        customInput.Gameplay.Shoot.canceled -= OnShootStarted;
-        customInput.Gameplay.Movement.canceled -= OnMovement;
+            customInput.Gameplay.Movement.performed += OnMovement;
+            customInput.Gameplay.Shoot.performed += OnShootStarted;
+            customInput.Gameplay.Shoot.canceled += OnShootStarted;
+            customInput.Gameplay.Movement.canceled += OnMovement;
+        }
 
-        MovementEvent?.Invoke(Vector2.zero);
-    }
+        private void OnShootStarted(InputAction.CallbackContext context)
+        {
+            int value = context.ReadValue<int>();
+            ShootEvent?.Invoke();
+        }
 
-    private void OnMovement(InputAction.CallbackContext context)
-    {
-        Vector2 movement = context.ReadValue<Vector2>();
-        MovementEvent?.Invoke(movement);
+        public void Disable()
+        {
+            customInput.Gameplay.Movement.performed -= OnMovement;
+            customInput.Gameplay.Shoot.performed -= OnShootStarted;
+            customInput.Gameplay.Shoot.canceled -= OnShootStarted;
+            customInput.Gameplay.Movement.canceled -= OnMovement;
+
+            MovementEvent?.Invoke(Vector2.zero);
+        }
+
+        private void OnMovement(InputAction.CallbackContext context)
+        {
+            Vector2 movement = context.ReadValue<Vector2>();
+            MovementEvent?.Invoke(movement);
+        }
     }
 }

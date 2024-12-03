@@ -1,22 +1,25 @@
 using System;
 using UnityEngine;
 
-public class Entity : MonoBehaviour
+namespace Assets.Scripts.Actors
 {
-    public event Action OnDeath;
-
-    protected float Health
+    public class Entity : MonoBehaviour
     {
-        get => health;
-        set
+        public event Action OnDeath;
+
+        protected float Health
         {
-            health = value;
-            if (health < 0)
+            get => health;
+            set
             {
-                OnDeath.Invoke();
+                health = value;
+                if (health < 0)
+                {
+                    OnDeath.Invoke();
+                }
             }
         }
-    }
 
-    protected float health;
+        protected float health;
+    }
 }

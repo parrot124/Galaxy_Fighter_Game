@@ -25,13 +25,12 @@ public class MainMenuView : MonoBehaviour
 
         List<Button> buttons = transform.GetChild(0).GetComponentsInChildren<Button>().ToList();
 
-        //cringe
         playButton = buttons.Find(x => x.gameObject.name == "Play");
         settingsButton = buttons.Find(x => x.gameObject.name == "Settings");
         quitButton = buttons.Find(x => x.gameObject.name == "Quit");
 
         playButton.onClick.AddListener(OnPlayPressed);
-        settingsButton.onClick.AddListener(OnSettingsPresed);
+        settingsButton.onClick.AddListener(OnSettingsPressed);
         quitButton.onClick.AddListener(OnQuitPressed);
     }
 
@@ -40,8 +39,8 @@ public class MainMenuView : MonoBehaviour
         Instance = null;
 
         playButton.onClick.RemoveListener(OnPlayPressed);
-        settingsButton.onClick.RemoveListener(OnSettingsPresed);
-        quitButton.onClick.RemoveListener(OnSettingsPresed);
+        settingsButton.onClick.RemoveListener(OnSettingsPressed);
+        quitButton.onClick.RemoveListener(OnSettingsPressed);
     }
 
     private void OnQuitPressed()
@@ -49,7 +48,7 @@ public class MainMenuView : MonoBehaviour
         QuitPressedEvent?.Invoke();
     }
 
-    private void OnSettingsPresed()
+    private void OnSettingsPressed()
     {
         SettingsPressedEvent?.Invoke();
     }
