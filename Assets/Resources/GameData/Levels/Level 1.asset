@@ -9,8 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6873bb21c7659344ba8d154055b035f2, type: 3}
-  m_Name: LevelContainer
+  m_Script: {fileID: 11500000, guid: 8c981f17893057c4cbc171aae54d40a9, type: 3}
+  m_Name: Level 1
   m_EditorClassIdentifier: 
-  levels:
-  - {fileID: 11400000, guid: 295ac83204f342f40805ed33639ce708, type: 2}
+  spawnRate: 1
+  levelName: Zero Level
+  description: Training course
+  enemies:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

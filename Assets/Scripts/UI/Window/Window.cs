@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Assets.Scripts.UI
+namespace GameScripts.UI
 {
     internal abstract class Window
     {

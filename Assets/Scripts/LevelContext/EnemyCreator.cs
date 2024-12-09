@@ -1,28 +1,18 @@
 using System.Collections.Generic;
-using System.Collections;
-using UnityEngine;
-using Assets.Scripts.Actors;
+using GameScripts.Static;
+using Actors;
 
-/// <summary>
-/// TODO: Make it factory, get rid of MonoBehaviour inheritance
-/// </summary>
-public class EnemyCreator : MonoBehaviour
+namespace LevelContext.Factories
 {
-    [SerializeField] private float spawnRate;
-    private List<Enemy> enemies;
-
-    private void Start()
+    public class EnemyCreator
     {
-        spawnRate = GameManager.CurrentLevel.SpawnRate;
-        enemies = GameManager.CurrentLevel.EnemyList;
-    }
-    
-    private IEnumerator SpawnEnemy()
-    {
-        yield return new WaitForSeconds(1.0f/spawnRate);
+        private float spawnRate;
+        private List<Enemy> enemies;
 
-        GameObject newEnemy = GameObject.CreatePrimitive(PrimitiveType.Plane);
-        newEnemy.transform.position += ScreenBound.Top;
-        newEnemy.AddComponent<Enemy>();
+        public EnemyCreator()
+        {
+            spawnRate = GameManager.CurrentLevel.SpawnRate;
+            enemies = GameManager.CurrentLevel.EnemyList;
+        }
     }
 }

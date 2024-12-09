@@ -1,8 +1,8 @@
-using Assets.Scripts.Actors;
 using System.Collections.Generic;
 using UnityEngine;
+using Actors;
 
-namespace Assets.Scripts.ScriptableObjects
+namespace ScriptableObjects
 {
     /// <summary>
     /// Create this object to do new levels. Don't forget to put them in LevelContainer if you want it to be displayed in main menu
@@ -11,7 +11,7 @@ namespace Assets.Scripts.ScriptableObjects
     public class Level : ScriptableObject
     {
         public float SpawnRate => spawnRate;
-        public string Name => name;
+        public string Name => levelName;
         public string Description => description;
         public List<Enemy> EnemyList => enemies;
 
@@ -19,12 +19,5 @@ namespace Assets.Scripts.ScriptableObjects
         [SerializeField] private string levelName;
         [SerializeField] private string description;
         [SerializeField] private List<Enemy> enemies;
-
-        public Level(string name, string description, List<Enemy> enemies)
-        {
-            this.name = name;
-            this.description = description;
-            this.enemies = enemies;
-        }
     }
 }

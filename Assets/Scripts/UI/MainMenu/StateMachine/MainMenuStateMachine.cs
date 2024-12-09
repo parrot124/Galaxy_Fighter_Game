@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Assets.Scripts.MainMenu.StateMachine;
+using Assets.GameScripts.MainMenu.StateMachine;
+using GameScripts.Static;
+using UnityEngine;
 
 /// <summary>
-/// Defines main menu UI state. Its sections should be subscribed to OnStateChange event and activate/deactivate themselves
+/// Defines main menu UI state
 /// </summary>
 public class MainMenuStateMachine
 {
@@ -23,8 +25,14 @@ public class MainMenuStateMachine
         EnterIn<MainMenuWindow>();
 
         //subscribe to buttons events
-        MainMenuView.PlayPressedEvent += EnterLevelSelectionWindow;
-        LevelSelector.BackButtonPressedEvent += EnterMainMenuWindow;
+        Helpers.ButtonEventsDict["Play"].AddListener(EnterLevelSelectionWindow);
+        Helpers.ButtonEventsDict["Back"].AddListener(EnterMainMenuWindow);
+        Helpers.ButtonEventsDict["Quit"].AddListener(ExitGame);
+    }
+
+    private void ExitGame()
+    {
+        Application.Quit();
     }
 
     private void EnterLevelSelectionWindow()

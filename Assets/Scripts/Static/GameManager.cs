@@ -1,22 +1,24 @@
-using UnityEngine;
-using Assets.Scripts.Static;
+using ScriptableObjects;
 using UnityEngine.SceneManagement;
-using Assets.Scripts.ScriptableObjects;
+using UnityEngine;
 
-public static class GameManager
+namespace GameScripts.Static
 {
-    static GameManager()
+    public static class GameManager
     {
-        LevelSelector.OnLevelSelected += LoadLevel;
-        LevelContainer = (LevelContainer)Resources.Load(GameConstants.LEVEL_CONTAINER_PATH);
-    }
+        public static Level CurrentLevel { get; private set; }
+        public static LevelContainer LevelContainer;
 
-    public static Level CurrentLevel { get; private set; }
-    public static LevelContainer LevelContainer;
+        static GameManager()
+        {
+            LevelSelector.OnLevelSelected += LoadLevel;
+            LevelContainer = Resources.Load(GameConstants.LevelContainerPath) as LevelContainer;
+        }
 
-    private static void LoadLevel(Level level)
-    {
-        CurrentLevel = level;
-        SceneManager.LoadScene(Scenes.GameScene);
+        private static void LoadLevel(Level level)
+        {
+            CurrentLevel = level;
+            SceneManager.LoadScene(Scenes.GameScene);
+        }
     }
 }

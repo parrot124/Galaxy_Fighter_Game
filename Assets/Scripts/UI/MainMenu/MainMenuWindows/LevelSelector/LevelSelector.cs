@@ -1,27 +1,32 @@
-using Assets.Scripts.ScriptableObjects;
-using System;
-using UnityEngine;
+using ScriptableObjects;
 using UnityEngine.UI;
+using UnityEngine;
+using System;
+using GameScripts.Static;
 
 public class LevelSelector : MonoBehaviour
 {
     public static LevelSelector Instance { get; private set; }
-    public static event Action BackButtonPressedEvent;
-
-    private Button backButton;
     public static Action<Level> OnLevelSelected;
+
+    public void RegisterButton(LevelDataDisplay levelDataDisplay)
+    {
+        if (Instance == null) throw new Exception("LevelSelector is off");
+
+        levelDataDisplay.OnClick += OnRegisteredButtonClick;
+    }
+
+    private void OnRegisteredButtonClick(Level level)
+    {
+        OnLevelSelected?.Invoke(level);
+    }
 
     private void OnEnable()
     {
         Instance = this;
 
-        backButton = transform.GetChild(0).GetComponentInChildren<Button>();
-        backButton.onClick.AddListener(OnBackPressed);
-    }
-
-    private void OnBackPressed()
-    {
-        BackButtonPressedEvent?.Invoke();
+        var backButton = transform.GetChild(0).GetComponentInChildren<Button>();
+        Helpers.ButtonEventsDict.TryAdd("Back", backButton.onClick);
     }
 
     private void OnDisable()

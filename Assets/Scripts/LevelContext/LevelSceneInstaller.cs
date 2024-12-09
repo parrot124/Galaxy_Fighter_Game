@@ -1,4 +1,4 @@
-using Assets.Scripts.Input;
+using GameScripts.Input;
 using Zenject;
 
 public class LevelSceneInstaller : MonoInstaller

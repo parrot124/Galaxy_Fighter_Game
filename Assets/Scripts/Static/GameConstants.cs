@@ -1,8 +1,10 @@
-﻿namespace Assets.Scripts.Static
+﻿namespace GameScripts.Static
 {
     internal static class GameConstants
     {
-        public const string LEVEL_CONTAINER_PATH = "Assets/GameData/Levels/LevelContainer";
-        public const string MAIN_MENU_WINDOW_TAG = "Window";
+        public const string LevelContainerPath = "GameData/Levels/Level Container";
+        public const string LevelListDisplayElementPrefabPath = "Prefabs/Level Display Prefab";
+
+        public const string MainMenuWindowTag = "Window";
     }
 }

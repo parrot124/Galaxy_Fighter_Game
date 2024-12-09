@@ -1,4 +1,4 @@
-using Assets.Scripts.Input;
+using GameScripts.Input;
 using UnityEngine;
 using Zenject;
 
@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [Inject] private InputReader inputReader;
 
-    private Vector2 movement;
     [SerializeField] private float speed;
+    private Vector2 movement;
 
     void Start()
     {
