@@ -1,5 +1,5 @@
-using Assets.Scripts.Input;
 using Zenject;
+using Input;
 
 public class LevelSceneInstaller : MonoInstaller
 {

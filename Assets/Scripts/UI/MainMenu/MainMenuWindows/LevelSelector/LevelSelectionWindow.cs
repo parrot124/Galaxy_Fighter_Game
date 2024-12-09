@@ -1,6 +1,6 @@
-﻿using Assets.Scripts.UI;
+﻿using GameScripts.UI;
 
-namespace Assets.Scripts.MainMenu.StateMachine
+namespace Assets.GameScripts.MainMenu.StateMachine
 {
     internal class LevelSelectionWindow : Window, IMainMenuState
     {

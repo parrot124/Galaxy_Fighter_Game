@@ -1,7 +1,7 @@
-using System;
 using UnityEngine;
+using System;
 
-namespace Assets.Scripts.Actors
+namespace Actors
 {
     public class Entity : MonoBehaviour
     {
@@ -15,7 +15,7 @@ namespace Assets.Scripts.Actors
                 health = value;
                 if (health < 0)
                 {
-                    OnDeath.Invoke();
+                    OnDeath?.Invoke();
                 }
             }
         }

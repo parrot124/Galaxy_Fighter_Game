@@ -1,9 +1,7 @@
-﻿using Assets.Scripts.ScriptableObjects;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Assets.Scripts.ScriptableObjects
+namespace ScriptableObjects
 {
     /// <summary>
     /// There is only one LevelContainer in the project. Its directory is hardcoded into GameConstants
@@ -15,13 +13,5 @@ namespace Assets.Scripts.ScriptableObjects
         [SerializeField] private List<Level> levels;
 
         public List<Level> Levels => levels;
-
-        private void OnEnable()
-        {
-            if (levels == null)
-            {
-                throw new NullReferenceException("Levels not set");
-            }
-        }
     }
 }

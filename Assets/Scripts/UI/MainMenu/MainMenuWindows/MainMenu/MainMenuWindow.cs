@@ -1,10 +1,10 @@
-﻿using Assets.Scripts.UI;
+﻿using GameScripts.UI;
 
-namespace Assets.Scripts.MainMenu.StateMachine
+namespace Assets.GameScripts.MainMenu.StateMachine
 {
     internal class MainMenuWindow : Window, IMainMenuState
     {
-        public MainMenuWindow() : base(MainMenuView.Instance.transform.GetChild(0).gameObject)
+        public MainMenuWindow() : base(global::MainMenu.Instance.transform.GetChild(0).gameObject)
         {
 
         }

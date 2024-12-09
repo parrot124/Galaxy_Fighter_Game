@@ -1,6 +1,4 @@
-using Assets.Scripts.Actors;
-
-namespace Assets.Scripts.Actors
+namespace Actors
 {
     public class Enemy : Entity
     {

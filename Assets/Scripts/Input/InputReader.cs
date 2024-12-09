@@ -1,9 +1,9 @@
-using System;
-using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine;
+using System;
 using Zenject;
 
-namespace Assets.Scripts.Input
+namespace GameScripts.Input
 {
     public class InputReader
     {
