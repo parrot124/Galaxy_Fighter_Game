@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [Inject] private InputReader inputReader;
 
-    [SerializeField] private float speed;
+    private float speed;
     private Vector2 movement;
 
     void Start()

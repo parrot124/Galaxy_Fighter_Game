@@ -1,18 +1,11 @@
 using LevelContext.Factories;
-using UnityEngine;
-using System;
 
-public class LevelManager : MonoBehaviour
+public class LevelManager
 {
     private EnemyCreator enemyCreator;
 
-    private void Start()
+    public LevelManager()
     {
-        ShowIntro();
-    }
-
-    private void ShowIntro()
-    {
-        throw new NotImplementedException("LevelManager ShowIntro() is not implemented");
+        enemyCreator = new();
     }
 }

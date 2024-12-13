@@ -25,9 +25,9 @@ public class MainMenuStateMachine
         EnterIn<MainMenuWindow>();
 
         //subscribe to buttons events
-        Helpers.ButtonEventsDict["Play"].AddListener(EnterLevelSelectionWindow);
-        Helpers.ButtonEventsDict["Back"].AddListener(EnterMainMenuWindow);
-        Helpers.ButtonEventsDict["Quit"].AddListener(ExitGame);
+        Helpers.MainMenuButtonEventsDict["Play"].AddListener(EnterLevelSelectionWindow);
+        Helpers.MainMenuButtonEventsDict["Back"].AddListener(EnterMainMenuWindow);
+        Helpers.MainMenuButtonEventsDict["Quit"].AddListener(ExitGame);
     }
 
     private void ExitGame()

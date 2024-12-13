@@ -1,7 +1,7 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
-using System;
 using Zenject;
+using System;
 
 namespace GameScripts.Input
 {

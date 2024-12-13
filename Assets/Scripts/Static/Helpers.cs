@@ -5,6 +5,6 @@ namespace GameScripts.Static
 {
     internal static class Helpers
     {
-        public static Dictionary<string, Button.ButtonClickedEvent> ButtonEventsDict = new();
+        public static Dictionary<string, Button.ButtonClickedEvent> MainMenuButtonEventsDict = new();
     }
 }

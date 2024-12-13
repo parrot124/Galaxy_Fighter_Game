@@ -26,7 +26,7 @@ public class LevelSelector : MonoBehaviour
         Instance = this;
 
         var backButton = transform.GetChild(0).GetComponentInChildren<Button>();
-        Helpers.ButtonEventsDict.TryAdd("Back", backButton.onClick);
+        Helpers.MainMenuButtonEventsDict.TryAdd("Back", backButton.onClick);
     }
 
     private void OnDisable()

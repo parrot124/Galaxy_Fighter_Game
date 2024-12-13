@@ -18,9 +18,9 @@ public class MainMenu : MonoBehaviour
         var settingsButton = buttons.Find(x => x.gameObject.name == "Settings");
         var quitButton = buttons.Find(x => x.gameObject.name == "Quit");
 
-        Helpers.ButtonEventsDict.TryAdd("Play", playButton.onClick);
-        Helpers.ButtonEventsDict.TryAdd("Settings", settingsButton.onClick);
-        Helpers.ButtonEventsDict.TryAdd("Quit", quitButton.onClick);
+        Helpers.MainMenuButtonEventsDict.TryAdd("Play", playButton.onClick);
+        Helpers.MainMenuButtonEventsDict.TryAdd("Settings", settingsButton.onClick);
+        Helpers.MainMenuButtonEventsDict.TryAdd("Quit", quitButton.onClick);
     }
 
     private void OnDisable()
