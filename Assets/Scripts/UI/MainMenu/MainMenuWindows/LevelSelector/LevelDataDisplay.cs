@@ -5,7 +5,7 @@ using TMPro;
 
 public class LevelDataDisplay : MonoBehaviour
 {
-    public event Action<Level> OnClick;
+    public event Action<Level> ClickedEvent;
 
     [Header("Set in inspector")]
     [SerializeField] private TextMeshProUGUI Header;
@@ -32,6 +32,6 @@ public class LevelDataDisplay : MonoBehaviour
 
     private void OnButtonClick()
     {
-        OnClick?.Invoke(level);
+        ClickedEvent?.Invoke(level);
     }
 }

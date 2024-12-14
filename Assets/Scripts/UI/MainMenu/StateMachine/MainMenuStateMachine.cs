@@ -4,56 +4,57 @@ using Assets.GameScripts.MainMenu.StateMachine;
 using GameScripts.Static;
 using UnityEngine;
 
-/// <summary>
-/// Defines main menu UI state
-/// </summary>
-public class MainMenuStateMachine
+namespace GameScripts.UI.MainMenu.StateMachine
 {
-    public static event Action<IMainMenuState> OnStateChange;
-
-    private Dictionary<Type, IMainMenuState> states;
-    private IMainMenuState currentState;
-
-    public MainMenuStateMachine()
+    /// <summary>
+    /// Defines main menu UI state
+    /// </summary>
+    public class MainMenuStateMachine
     {
-        states = new Dictionary<Type, IMainMenuState>()
+        public static event Action<IMainMenuState> StateChangedEvent;
+
+        private Dictionary<Type, IMainMenuState> states;
+        private IMainMenuState currentState;
+
+        public MainMenuStateMachine()
         {
-            [typeof(MainMenuWindow)] = new MainMenuWindow(),
-            [typeof(LevelSelectionWindow)] = new LevelSelectionWindow()
-        };
+            states = new Dictionary<Type, IMainMenuState>()
+            {
+                [typeof(MainMenuWindow)] = new MainMenuWindow(),
+                [typeof(LevelSelectionWindow)] = new LevelSelectionWindow()
+            };
 
-        EnterIn<MainMenuWindow>();
+            EnterIn<MainMenuWindow>();
 
-        //subscribe to buttons events
-        Helpers.MainMenuButtonEventsDict["Play"].AddListener(EnterLevelSelectionWindow);
-        Helpers.MainMenuButtonEventsDict["Back"].AddListener(EnterMainMenuWindow);
-        Helpers.MainMenuButtonEventsDict["Quit"].AddListener(ExitGame);
-    }
+            Helpers.MainMenuButtonEventsDict["Play"].AddListener(EnterLevelSelectionWindow);
+            Helpers.MainMenuButtonEventsDict["Back"].AddListener(EnterMainMenuWindow);
+            Helpers.MainMenuButtonEventsDict["Quit"].AddListener(ExitGame);
+        }
 
-    private void ExitGame()
-    {
-        Application.Quit();
-    }
-
-    private void EnterLevelSelectionWindow()
-    {
-        EnterIn<LevelSelectionWindow>();
-    }
-
-    private void EnterMainMenuWindow()
-    {
-        EnterIn<MainMenuWindow>();
-    }
-
-    private void EnterIn<TState>() where TState : IMainMenuState
-    {
-        if (states.TryGetValue(typeof(TState), out IMainMenuState state))
+        private void EnterIn<TState>() where TState : IMainMenuState
         {
-            currentState?.Exit();
-            currentState = state;
-            currentState.Enter();
+            if (states.TryGetValue(typeof(TState), out IMainMenuState state))
+            {
+                currentState?.Exit();
+                currentState = state;
+                currentState.Enter();
 
-            OnStateChange?.Invoke(currentState);
+                StateChangedEvent?.Invoke(currentState);
+            }
+        }
+        private void EnterLevelSelectionWindow()
+        {
+            EnterIn<LevelSelectionWindow>();
+        }
+
+        private void EnterMainMenuWindow()
+        {
+            EnterIn<MainMenuWindow>();
+        }
+
+        private void ExitGame()
+        {
+            Application.Quit();
         }
     }
 }

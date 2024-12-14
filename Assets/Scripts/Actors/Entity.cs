@@ -5,7 +5,7 @@ namespace Actors
 {
     public class Entity : MonoBehaviour
     {
-        public event Action OnDeath;
+        public event Action Died;
 
         protected float Health
         {
@@ -15,7 +15,7 @@ namespace Actors
                 health = value;
                 if (health < 0)
                 {
-                    OnDeath?.Invoke();
+                    Died?.Invoke();
                 }
             }
         }

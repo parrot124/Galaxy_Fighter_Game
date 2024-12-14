@@ -19,7 +19,7 @@ namespace GameScripts.Static
 
         static GameManager()
         {
-            LevelSelector.OnLevelSelected += LoadLevel;
+            LevelSelector.LevelSelected += LoadLevel;
             LevelContainer = Resources.Load(GameConstants.LevelContainerPath) as LevelContainer;
         }
 

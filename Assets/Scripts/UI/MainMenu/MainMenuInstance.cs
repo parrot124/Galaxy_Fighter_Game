@@ -1,3 +1,4 @@
+using GameScripts.UI.MainMenu.StateMachine;
 using UnityEngine;
 
 public class MainMenuInstance : MonoBehaviour
@@ -6,6 +7,6 @@ public class MainMenuInstance : MonoBehaviour
 
     private void Start()
     {
-        mainMenuStateMachine = new MainMenuStateMachine();
+        mainMenuStateMachine = new();
     }
 }

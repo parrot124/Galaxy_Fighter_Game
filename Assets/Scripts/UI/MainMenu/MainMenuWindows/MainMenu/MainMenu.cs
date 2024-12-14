@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using GameScripts.Static;
-using System.Linq;
 using UnityEngine.UI;
 using UnityEngine;
+using System.Linq;
 
 public class MainMenu : MonoBehaviour
 {

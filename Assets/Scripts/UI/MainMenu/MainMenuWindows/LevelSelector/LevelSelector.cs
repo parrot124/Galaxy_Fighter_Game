@@ -1,24 +1,24 @@
+using GameScripts.Static;
 using ScriptableObjects;
 using UnityEngine.UI;
 using UnityEngine;
 using System;
-using GameScripts.Static;
 
 public class LevelSelector : MonoBehaviour
 {
     public static LevelSelector Instance { get; private set; }
-    public static Action<Level> OnLevelSelected;
+    public static Action<Level> LevelSelected;
 
     public void RegisterButton(LevelDataDisplay levelDataDisplay)
     {
         if (Instance == null) throw new Exception("LevelSelector is off");
 
-        levelDataDisplay.OnClick += OnRegisteredButtonClick;
+        levelDataDisplay.ClickedEvent += OnRegisteredButtonClick;
     }
 
     private void OnRegisteredButtonClick(Level level)
     {
-        OnLevelSelected?.Invoke(level);
+        LevelSelected?.Invoke(level);
     }
 
     private void OnEnable()

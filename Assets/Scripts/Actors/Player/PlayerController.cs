@@ -6,16 +6,16 @@ public class PlayerController : MonoBehaviour
 {
     [Inject] private InputReader inputReader;
 
-    private float speed;
     private Vector2 movement;
+    private float speed;
 
-    void Start()
+    private void Start()
     {
         movement = Vector2.zero;
         inputReader.MovementEvent += OnMovement;
     }
 
-    void Update()
+    private void Update()
     {
         transform.Translate(movement * Time.deltaTime);
     }

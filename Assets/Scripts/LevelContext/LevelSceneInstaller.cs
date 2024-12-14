@@ -1,4 +1,5 @@
 using GameScripts.Input;
+using Actors.Player;
 using Zenject;
 
 public class LevelSceneInstaller : MonoInstaller
@@ -9,5 +10,6 @@ public class LevelSceneInstaller : MonoInstaller
         Container.Bind<LevelManager>().AsSingle();
         Container.Bind<InputReader>().AsSingle();
         Container.Bind<PlayerController>().AsSingle();
+        Container.Bind<Player>().AsSingle();
     }
 }
