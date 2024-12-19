@@ -1,7 +1,7 @@
-using System.Collections.Generic;
-using GameScripts.Static;
-using UnityEngine;
 using Actors;
+using GameScripts.Static;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace LevelContext.Factories
 {
@@ -17,7 +17,7 @@ namespace LevelContext.Factories
 
         public Enemy ProduceEnemy()
         {
-            return GameObject.Instantiate(enemies.Dequeue());
+            return Object.Instantiate(enemies.Dequeue().Prefab).GetComponent<Enemy>();
         }
     }
 }

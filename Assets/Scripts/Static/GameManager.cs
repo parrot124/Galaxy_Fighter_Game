@@ -6,14 +6,22 @@ namespace GameScripts.Static
 {
     public static class GameManager
     {
+
+        private static Level currentLevel;
         public static Level CurrentLevel 
         {
             get
             {
-                if (CurrentLevel == null) { return LevelContainer.Levels[0]; }
-                else return CurrentLevel;
+                if (currentLevel == null)
+                {
+                    currentLevel = LevelContainer.Levels[0];
+                }
+                return currentLevel;
             }
-            private set { } 
+            private set 
+            {
+                currentLevel = value;
+            } 
         }
         public static LevelContainer LevelContainer;
 

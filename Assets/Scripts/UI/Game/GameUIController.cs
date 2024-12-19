@@ -13,25 +13,25 @@ public class GameUIController : MonoBehaviour
     private TextMeshProUGUI scoreText;
     private Button pauseButton;
 
+    private LazyInject<Player> player;
+
     [Inject]
-    private void Construct(Player player)
+    private void SubscribeToPlayerStatsChange(LazyInject<Player> player)
     {
-        player.StatsChangedEvent += OnStatsChange;
+        player.Value.StatsChangedEvent += OnStatsChange;
     }
 
-    void Awake()
+    void Start()
     {
         UI = GetComponent<Canvas>();
 
         healthSpriteLayout = GetComponentInChildren<VerticalLayoutGroup>();
         scoreText = GetComponentInChildren<TextMeshProUGUI>();
         pauseButton = GetComponentInChildren<Button>();
-
-        
     }
 
     private void OnStatsChange(PlayerStats stats)
     {
-
+        return;
     }
 }

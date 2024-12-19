@@ -1,5 +1,8 @@
-﻿using System;
+﻿using GameScripts.Static;
+using UnityEngine;
+using System;
 using Zenject;
+using Unity.VisualScripting;
 
 namespace Actors.Player
 {
@@ -7,22 +10,27 @@ namespace Actors.Player
     {
         public event Action<PlayerStats> StatsChangedEvent;
 
-        private PlayerStats Stats
+        private PlayerController controller;
+        private GameObject playerGameObject;
+
+        public PlayerStats Stats
         {
-            get => Stats;
-            set
+            get => stats;
+            private set
             {
-                Stats = value;
-                StatsChangedEvent?.Invoke(Stats);
+                stats = value;
+                StatsChangedEvent?.Invoke(stats);
             }
         }
 
-        [Inject]
-        public Player(PlayerController controller)
+        private PlayerStats stats;
+
+        public Player()
         {
+            playerGameObject = Helpers.GameHelper.PlayerGameObject;
+            controller = playerGameObject.GetOrAddComponent<PlayerController>();
+
             Stats = new();
         }
-
-
     }
 }

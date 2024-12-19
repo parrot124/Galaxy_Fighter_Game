@@ -13,10 +13,10 @@ namespace GameScripts.Input
         private CustomInput customInput;
 
         [Inject]
-        private InputReader(CustomInput input)
+        public InputReader(CustomInput input)
         {
             customInput = input;
-
+            Debug.Log("InputReader Constructed");
             customInput.Enable();
 
             customInput.Gameplay.Movement.performed += OnMovement;

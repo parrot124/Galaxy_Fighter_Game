@@ -4,15 +4,23 @@ using Zenject;
 
 public class PlayerController : MonoBehaviour
 {
-    [Inject] private InputReader inputReader;
+    private LazyInject<InputReader> inputReader;
 
     private Vector2 movement;
     private float speed;
 
+    [Inject]
+    private void Construct(LazyInject<InputReader> input)
+    {
+        inputReader = input;
+    }
+
     private void Start()
     {
         movement = Vector2.zero;
-        inputReader.MovementEvent += OnMovement;
+        speed = 1.0f;
+
+        inputReader.Value.MovementEvent += OnMovement;
     }
 
     private void Update()
